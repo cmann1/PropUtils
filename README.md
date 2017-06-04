@@ -35,4 +35,10 @@ map.add_prop(19, pos[0], pos[1], prop1)
 # Some props also have a more "logical" pivot defined. Use Pivot.ATTACHMENT
 pos = prop_utils.set_prop_location(10, 0, prop2, Pivot.ATTACHMENT, prop2_data)
 map.add_prop(19, pos[0], pos[1], prop2)
+
+# Find the centre of props
+for id, value in map.props.items():
+	layer, x, y, prop = value
+	prop_centre = prop_utils.get_prop_location(x, y, prop, Pivot.CENTRE)
+	print(prop_centre)
 ```
