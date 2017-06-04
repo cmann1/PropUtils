@@ -21,7 +21,7 @@ def int_to_rad(angle):
 
 
 def rad_to_int(angle):
-	return int(65536 * (angle / 2 / math.pi))
+	return int(65536 * ((angle % (math.pi * 2)) / 2 / math.pi))
 
 
 def get_prop_scale(scale):
