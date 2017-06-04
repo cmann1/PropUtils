@@ -1,0 +1,1126 @@
+{
+	"sets": {
+		"1": {
+			"1": {
+				"name_nice": "Stone Brick",
+				"name": "stone_brick",
+				"index": 1,
+				"palettes": {
+					"1": "-brown",
+					"2": "-light",
+					"3": "-dark"
+				},
+				"set_index": 1
+			},
+			"2": {
+				"name_nice": "Concrete",
+				"name": "concrete",
+				"index": 2,
+				"palettes": {
+					"1": "-brown",
+					"2": "-light",
+					"3": "-dark"
+				},
+				"set_index": 1
+			},
+			"3": {
+				"name_nice": "Concrete Block",
+				"name": "concrete_block",
+				"index": 3,
+				"palettes": {
+					"1": "-brown",
+					"2": "-light",
+					"3": "-dark"
+				},
+				"set_index": 1
+			},
+			"4": {
+				"name_nice": "Rock",
+				"name": "rock",
+				"index": 4,
+				"palettes": {
+					"1": "-brown",
+					"2": "-light",
+					"3": "-dark"
+				},
+				"set_index": 1
+			},
+			"5": {
+				"name_nice": "Stone Carpet",
+				"name": "stone_carpet",
+				"index": 5,
+				"palettes": {
+					"1": "-brown",
+					"2": "-light",
+					"3": "-dark"
+				},
+				"set_index": 1
+			},
+			"6": {
+				"name_nice": "Concrete Carpet",
+				"name": "concrete_carpet",
+				"index": 6,
+				"palettes": {
+					"1": "-brown",
+					"2": "-light",
+					"3": "-dark"
+				},
+				"set_index": 1
+			},
+			"7": {
+				"name_nice": "Block Carpet",
+				"name": "block_carpet",
+				"index": 7,
+				"palettes": {
+					"1": "-brown",
+					"2": "-light",
+					"3": "-dark"
+				},
+				"set_index": 1
+			},
+			"8": {
+				"name_nice": "Ground Grass",
+				"name": "ground_grass",
+				"index": 8,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"9": {
+				"name_nice": "Ground Pebbles",
+				"name": "ground_pebbles",
+				"index": 9,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"10": {
+				"name_nice": "Ground",
+				"name": "ground",
+				"index": 10,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"11": {
+				"name_nice": "Wood",
+				"name": "wood",
+				"index": 11,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"12": {
+				"name_nice": "Wood Carpet",
+				"name": "wood_carpet",
+				"index": 12,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"13": {
+				"name_nice": "Bookshelves",
+				"name": "bookshelves",
+				"index": 13,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"14": {
+				"name_nice": "Wallpaper 1",
+				"name": "wallpaper_1",
+				"index": 14,
+				"palettes": {
+					"1": "-green",
+					"2": "-red",
+					"3": "-blue"
+				},
+				"set_index": 1
+			},
+			"15": {
+				"name_nice": "Wallpaper 2",
+				"name": "wallpaper_2",
+				"index": 15,
+				"palettes": {
+					"1": "-green",
+					"2": "-blue",
+					"3": "-red"
+				},
+				"set_index": 1
+			},
+			"16": {
+				"name_nice": "Wallpaper Flower",
+				"name": "wallpaper_flower",
+				"index": 16,
+				"palettes": {
+					"1": "-green",
+					"2": "-red",
+					"3": "-blue"
+				},
+				"set_index": 1
+			},
+			"17": {
+				"name_nice": "Wood Verrtical",
+				"name": "wood_verrtical",
+				"index": 17,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"18": {
+				"name_nice": "Window",
+				"name": "window",
+				"index": 18,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"19": {
+				"name_nice": "Bars",
+				"name": "bars",
+				"index": 19,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"20": {
+				"name_nice": "Water",
+				"name": "water",
+				"index": 20,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			},
+			"21": {
+				"name_nice": "Dust",
+				"name": "dust",
+				"index": 21,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 1
+			}
+		},
+		"2": {
+			"1": {
+				"name_nice": "Ground Grass",
+				"name": "ground_grass",
+				"index": 1,
+				"palettes": {
+					"1": "-brown",
+					"2": "-red",
+					"3": "-dark"
+				},
+				"set_index": 2
+			},
+			"2": {
+				"name_nice": "Ground Pebbles",
+				"name": "ground_pebbles",
+				"index": 2,
+				"palettes": {
+					"1": "-brown",
+					"2": "-red",
+					"3": "-dark"
+				},
+				"set_index": 2
+			},
+			"3": {
+				"name_nice": "Ground",
+				"name": "ground",
+				"index": 3,
+				"palettes": {
+					"1": "-brown",
+					"2": "-red",
+					"3": "-dark"
+				},
+				"set_index": 2
+			},
+			"4": {
+				"name_nice": "Stone Lattice",
+				"name": "stone_lattice",
+				"index": 4,
+				"palettes": {
+					"1": "-grey",
+					"2": "-red"
+				},
+				"set_index": 2
+			},
+			"5": {
+				"name_nice": "Stone Lattice Square",
+				"name": "stone_lattice_square",
+				"index": 5,
+				"palettes": {
+					"1": "-grey",
+					"2": "-red"
+				},
+				"set_index": 2
+			},
+			"6": {
+				"name_nice": "Tiles",
+				"name": "tiles",
+				"index": 6,
+				"palettes": {
+					"1": "-brown",
+					"2": "-red"
+				},
+				"set_index": 2
+			},
+			"7": {
+				"name_nice": "Rock",
+				"name": "rock",
+				"index": 7,
+				"palettes": {
+					"1": "-brown",
+					"2": "-grey"
+				},
+				"set_index": 2
+			},
+			"8": {
+				"name_nice": "Decorative",
+				"name": "decorative",
+				"index": 8,
+				"palettes": {
+					"1": "-brown",
+					"2": "-red"
+				},
+				"set_index": 2
+			},
+			"9": {
+				"name_nice": "Grass",
+				"name": "grass",
+				"index": 9,
+				"palettes": {
+					"1": "-green",
+					"2": "-brown",
+					"3": "-bright"
+				},
+				"set_index": 2
+			},
+			"10": {
+				"name_nice": "Water",
+				"name": "water",
+				"index": 10,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 2
+			},
+			"11": {
+				"name_nice": "Wooden Lattice Square",
+				"name": "wooden_lattice_square",
+				"index": 11,
+				"palettes": {
+					"1": "-light",
+					"2": "-medium",
+					"3": "-dark"
+				},
+				"set_index": 2
+			},
+			"12": {
+				"name_nice": "Wooden Lattice",
+				"name": "wooden_lattice",
+				"index": 12,
+				"palettes": {
+					"1": "-light",
+					"2": "-medium",
+					"3": "-dark"
+				},
+				"set_index": 2
+			},
+			"13": {
+				"name_nice": "Leaves",
+				"name": "leaves",
+				"index": 13,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 2
+			}
+		},
+		"3": {
+			"1": {
+				"name_nice": "Brick",
+				"name": "brick",
+				"index": 1,
+				"palettes": {
+					"1": "-red",
+					"2": "-purple",
+					"3": "-green",
+					"4": "-brown"
+				},
+				"set_index": 3
+			},
+			"2": {
+				"name_nice": "Concrete Brick",
+				"name": "concrete_brick",
+				"index": 2,
+				"palettes": {
+					"1": "-dark",
+					"2": "-light"
+				},
+				"set_index": 3
+			},
+			"3": {
+				"name_nice": "Metal Truss",
+				"name": "metal_truss",
+				"index": 3,
+				"palettes": {
+					"1": "-dark",
+					"2": "-light"
+				},
+				"set_index": 3
+			},
+			"4": {
+				"name_nice": "Concrete",
+				"name": "concrete",
+				"index": 4,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 3
+			},
+			"5": {
+				"name_nice": "Block",
+				"name": "block",
+				"index": 5,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 3
+			},
+			"6": {
+				"name_nice": "Garbage",
+				"name": "garbage",
+				"index": 6,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 3
+			}
+		},
+		"4": {
+			"1": {
+				"name_nice": "Blocks",
+				"name": "blocks",
+				"index": 1,
+				"palettes": {
+					"1": "-brown",
+					"2": "-grey",
+					"3": "-white",
+					"4": "-black"
+				},
+				"set_index": 4
+			},
+			"2": {
+				"name_nice": "Ground Metal",
+				"name": "ground_metal",
+				"index": 2,
+				"palettes": {
+					"1": "-grey",
+					"2": "-brown"
+				},
+				"set_index": 4
+			},
+			"3": {
+				"name_nice": "Rock",
+				"name": "rock",
+				"index": 3,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 4
+			},
+			"4": {
+				"name_nice": "Wires",
+				"name": "wires",
+				"index": 4,
+				"palettes": {
+					"1": "-green",
+					"2": "-grey",
+					"3": "-white",
+					"4": "-black"
+				},
+				"set_index": 4
+			},
+			"5": {
+				"name_nice": "Wire Panels",
+				"name": "wire_panels",
+				"index": 5,
+				"palettes": {
+					"1": "-green",
+					"2": "-grey",
+					"3": "-white",
+					"4": "-black"
+				},
+				"set_index": 4
+			},
+			"6": {
+				"name_nice": "Metal",
+				"name": "metal",
+				"index": 6,
+				"palettes": {
+					"1": "-brown",
+					"2": "-grey",
+					"3": "-white",
+					"4": "-black"
+				},
+				"set_index": 4
+			},
+			"7": {
+				"name_nice": "Tiles",
+				"name": "tiles",
+				"index": 7,
+				"palettes": {
+					"1": "-brown",
+					"2": "-grey",
+					"3": "-white",
+					"4": "-black"
+				},
+				"set_index": 4
+			},
+			"8": {
+				"name_nice": "Window",
+				"name": "window",
+				"index": 8,
+				"palettes": {
+					"1": "-grey",
+					"2": "-brown",
+					"3": "-white",
+					"4": "-black"
+				},
+				"set_index": 4
+			},
+			"9": {
+				"name_nice": "Slime",
+				"name": "slime",
+				"index": 9,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 4
+			}
+		},
+		"5": {
+			"1": {
+				"name_nice": "Flat",
+				"name": "flat",
+				"index": 1,
+				"palettes": {
+					"1": "-purple",
+					"2": "-blue",
+					"3": "-pink",
+					"4": "-green",
+					"5": "-yellow",
+					"6": "-white"
+				},
+				"set_index": 5
+			},
+			"2": {
+				"name_nice": "Dust Block",
+				"name": "dust_block",
+				"index": 2,
+				"palettes": {
+					"1": ""
+				},
+				"set_index": 5
+			}
+		}
+	},
+	"names": {
+		"city brick-red": [
+			3,
+			1,
+			1
+		],
+		"forest decorative-brown": [
+			2,
+			8,
+			1
+		],
+		"mansion ground_grass": [
+			1,
+			8,
+			1
+		],
+		"tutorial flat-purple": [
+			5,
+			1,
+			1
+		],
+		"forest tiles-red": [
+			2,
+			6,
+			2
+		],
+		"mansion water": [
+			1,
+			20,
+			1
+		],
+		"city brick-green": [
+			3,
+			1,
+			3
+		],
+		"tutorial flat-pink": [
+			5,
+			1,
+			3
+		],
+		"forest stone_lattice-red": [
+			2,
+			4,
+			2
+		],
+		"mansion stone_brick-brown": [
+			1,
+			1,
+			1
+		],
+		"laboratory wires-green": [
+			4,
+			4,
+			1
+		],
+		"forest water": [
+			2,
+			10,
+			1
+		],
+		"laboratory wire_panels-white": [
+			4,
+			5,
+			3
+		],
+		"mansion stone_brick-dark": [
+			1,
+			1,
+			3
+		],
+		"laboratory metal-white": [
+			4,
+			6,
+			3
+		],
+		"forest ground-brown": [
+			2,
+			3,
+			1
+		],
+		"laboratory wire_panels-black": [
+			4,
+			5,
+			4
+		],
+		"mansion wallpaper_2-green": [
+			1,
+			15,
+			1
+		],
+		"forest stone_lattice-grey": [
+			2,
+			4,
+			1
+		],
+		"mansion wallpaper_1-green": [
+			1,
+			14,
+			1
+		],
+		"laboratory tiles-white": [
+			4,
+			7,
+			3
+		],
+		"mansion wallpaper_2-red": [
+			1,
+			15,
+			3
+		],
+		"mansion concrete_carpet-brown": [
+			1,
+			6,
+			1
+		],
+		"city brick-brown": [
+			3,
+			1,
+			4
+		],
+		"mansion stone_carpet-dark": [
+			1,
+			5,
+			3
+		],
+		"laboratory window-white": [
+			4,
+			8,
+			3
+		],
+		"laboratory tiles-grey": [
+			4,
+			7,
+			2
+		],
+		"laboratory wire_panels-green": [
+			4,
+			5,
+			1
+		],
+		"mansion block_carpet-brown": [
+			1,
+			7,
+			1
+		],
+		"forest ground-dark": [
+			2,
+			3,
+			3
+		],
+		"forest grass-bright": [
+			2,
+			9,
+			3
+		],
+		"forest ground_pebbles-brown": [
+			2,
+			2,
+			1
+		],
+		"forest wooden_lattice_square-medium": [
+			2,
+			11,
+			2
+		],
+		"laboratory tiles-black": [
+			4,
+			7,
+			4
+		],
+		"mansion ground_pebbles": [
+			1,
+			9,
+			1
+		],
+		"laboratory wires-grey": [
+			4,
+			4,
+			2
+		],
+		"mansion rock-brown": [
+			1,
+			4,
+			1
+		],
+		"forest ground-red": [
+			2,
+			3,
+			2
+		],
+		"mansion bookshelves": [
+			1,
+			13,
+			1
+		],
+		"laboratory blocks-brown": [
+			4,
+			1,
+			1
+		],
+		"mansion wallpaper_1-blue": [
+			1,
+			14,
+			3
+		],
+		"city concrete": [
+			3,
+			4,
+			1
+		],
+		"mansion wood": [
+			1,
+			11,
+			1
+		],
+		"mansion wallpaper_2-blue": [
+			1,
+			15,
+			2
+		],
+		"forest leaves": [
+			2,
+			13,
+			1
+		],
+		"mansion concrete_block-brown": [
+			1,
+			3,
+			1
+		],
+		"mansion dust": [
+			1,
+			21,
+			1
+		],
+		"mansion bars": [
+			1,
+			19,
+			1
+		],
+		"laboratory metal-grey": [
+			4,
+			6,
+			2
+		],
+		"mansion wallpaper_1-red": [
+			1,
+			14,
+			2
+		],
+		"laboratory blocks-grey": [
+			4,
+			1,
+			2
+		],
+		"mansion concrete-brown": [
+			1,
+			2,
+			1
+		],
+		"mansion wallpaper_flower-red": [
+			1,
+			16,
+			2
+		],
+		"mansion concrete_carpet-light": [
+			1,
+			6,
+			2
+		],
+		"city block": [
+			3,
+			5,
+			1
+		],
+		"mansion concrete_block-dark": [
+			1,
+			3,
+			3
+		],
+		"forest ground_grass-brown": [
+			2,
+			1,
+			1
+		],
+		"laboratory slime": [
+			4,
+			9,
+			1
+		],
+		"laboratory wires-black": [
+			4,
+			4,
+			4
+		],
+		"forest grass-brown": [
+			2,
+			9,
+			2
+		],
+		"mansion wood_verrtical": [
+			1,
+			17,
+			1
+		],
+		"forest wooden_lattice-dark": [
+			2,
+			12,
+			3
+		],
+		"laboratory window-black": [
+			4,
+			8,
+			4
+		],
+		"mansion window": [
+			1,
+			18,
+			1
+		],
+		"forest wooden_lattice-medium": [
+			2,
+			12,
+			2
+		],
+		"laboratory ground_metal-brown": [
+			4,
+			2,
+			2
+		],
+		"mansion rock-dark": [
+			1,
+			4,
+			3
+		],
+		"mansion stone_carpet-light": [
+			1,
+			5,
+			2
+		],
+		"tutorial flat-yellow": [
+			5,
+			1,
+			5
+		],
+		"mansion wallpaper_flower-green": [
+			1,
+			16,
+			1
+		],
+		"tutorial flat-blue": [
+			5,
+			1,
+			2
+		],
+		"forest stone_lattice_square-red": [
+			2,
+			5,
+			2
+		],
+		"tutorial flat-white": [
+			5,
+			1,
+			6
+		],
+		"laboratory metal-brown": [
+			4,
+			6,
+			1
+		],
+		"forest grass-green": [
+			2,
+			9,
+			1
+		],
+		"mansion concrete-light": [
+			1,
+			2,
+			2
+		],
+		"forest rock-grey": [
+			2,
+			7,
+			2
+		],
+		"city brick-purple": [
+			3,
+			1,
+			2
+		],
+		"mansion stone_brick-light": [
+			1,
+			1,
+			2
+		],
+		"laboratory wire_panels-grey": [
+			4,
+			5,
+			2
+		],
+		"laboratory metal-black": [
+			4,
+			6,
+			4
+		],
+		"mansion block_carpet-light": [
+			1,
+			7,
+			2
+		],
+		"mansion wood_carpet": [
+			1,
+			12,
+			1
+		],
+		"mansion concrete_carpet-dark": [
+			1,
+			6,
+			3
+		],
+		"tutorial flat-green": [
+			5,
+			1,
+			4
+		],
+		"laboratory blocks-black": [
+			4,
+			1,
+			4
+		],
+		"city metal_truss-dark": [
+			3,
+			3,
+			1
+		],
+		"forest wooden_lattice_square-light": [
+			2,
+			11,
+			1
+		],
+		"forest stone_lattice_square-grey": [
+			2,
+			5,
+			1
+		],
+		"forest wooden_lattice-light": [
+			2,
+			12,
+			1
+		],
+		"forest rock-brown": [
+			2,
+			7,
+			1
+		],
+		"tutorial dust_block": [
+			5,
+			2,
+			1
+		],
+		"mansion wallpaper_flower-blue": [
+			1,
+			16,
+			3
+		],
+		"city concrete_brick-light": [
+			3,
+			2,
+			2
+		],
+		"mansion ground": [
+			1,
+			10,
+			1
+		],
+		"mansion concrete-dark": [
+			1,
+			2,
+			3
+		],
+		"laboratory wires-white": [
+			4,
+			4,
+			3
+		],
+		"forest decorative-red": [
+			2,
+			8,
+			2
+		],
+		"laboratory rock": [
+			4,
+			3,
+			1
+		],
+		"forest ground_pebbles-dark": [
+			2,
+			2,
+			3
+		],
+		"forest ground_grass-red": [
+			2,
+			1,
+			2
+		],
+		"city concrete_brick-dark": [
+			3,
+			2,
+			1
+		],
+		"laboratory ground_metal-grey": [
+			4,
+			2,
+			1
+		],
+		"forest tiles-brown": [
+			2,
+			6,
+			1
+		],
+		"forest wooden_lattice_square-dark": [
+			2,
+			11,
+			3
+		],
+		"mansion block_carpet-dark": [
+			1,
+			7,
+			3
+		],
+		"mansion rock-light": [
+			1,
+			4,
+			2
+		],
+		"laboratory tiles-brown": [
+			4,
+			7,
+			1
+		],
+		"city garbage": [
+			3,
+			6,
+			1
+		],
+		"forest ground_pebbles-red": [
+			2,
+			2,
+			2
+		],
+		"laboratory window-brown": [
+			4,
+			8,
+			2
+		],
+		"forest ground_grass-dark": [
+			2,
+			1,
+			3
+		],
+		"laboratory window-grey": [
+			4,
+			8,
+			1
+		],
+		"laboratory blocks-white": [
+			4,
+			1,
+			3
+		],
+		"city metal_truss-light": [
+			3,
+			3,
+			2
+		],
+		"mansion stone_carpet-brown": [
+			1,
+			5,
+			1
+		],
+		"mansion concrete_block-light": [
+			1,
+			3,
+			2
+		]
+	}
+}
