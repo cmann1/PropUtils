@@ -22,13 +22,14 @@ def read_prop_origins(prop_utils, map_file_location, map_file, grid_size=8, grid
 
 		prop_data = prop_utils.get_prop_data(prop)
 		frame_data = prop_data['palettes'][0][0]
+		x, y, w, h = frame_data['rect_uv']
 		centre = prop_utils.get_prop_location(x, y, prop, Pivot.CENTRE, prop_data)
 
 		grid_x = math.floor((centre[0] + half_grid) / grid_size) * grid_size
 		grid_y = math.floor((centre[1] + half_grid) / grid_size) * grid_size
 
 		top_left = prop_utils.get_prop_location(x, y, prop, Pivot.TOP_LEFT, prop_data)
-		prop_data['origin'] = (abs(top_left[0] - grid_x) / frame_data['w'], abs(top_left[1] - grid_y) / frame_data['h'])
+		prop_data['origin'] = (abs(top_left[0] - grid_x) / w, abs(top_left[1] - grid_y) / h)
 
 		pass
 
@@ -50,12 +51,8 @@ def place_test_props(prop_utils, map_data, test_get=True, test_set=False, test_g
 	if test_get:
 		marker1_data = prop_utils.name_prop_map['foliage stain_small']
 		m1_data = marker1_data['palettes'][0][0]
-		m1o = (m1_data['x'], m1_data['y'])
-		m1f = (m1_data['w'], m1_data['h'])
 		marker2_data = prop_utils.name_prop_map['machinery light_small']
 		m2_data = marker2_data['palettes'][0][0]
-		m2o = (m2_data['x'], m2_data['y'])
-		m2f = (m2_data['w'], m2_data['h'])
 		marker3_data = prop_utils.name_prop_map['symbol arrow']
 		m3p = Pivot.RIGHT
 
@@ -74,15 +71,8 @@ def place_test_props(prop_utils, map_data, test_get=True, test_set=False, test_g
 
 				if pivot == Pivot.TOP_LEFT:
 					marker_data = marker1_data
-					mo = m1o
-					mf = m1f
 				else:
 					marker_data = marker2_data
-					mo = m2o
-					mf = m2f
-				# marker_prop = dustmaker.Prop(19, 0, True, True, 1, marker_data['set_index'], marker_data['group_index'], marker_data['sprite_index'], 0)
-				# props.append((20, grid_x - mo[0] - mf[0] / 2, grid_y - mo[1] - mf[1] / 2, marker))
-				# props.append((20, p[0] - mo[0] - mf[0] / 2, p[1] - mo[1] - mf[1] / 2, marker_prop))
 				marker_prop = PropUtils.from_data(marker_data)
 				marker_prop.scale = 0.2
 				marker_x, marker_y = prop_utils.set_prop_location(p[0], p[1], marker_prop, Pivot.CENTRE, marker_data)

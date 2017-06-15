@@ -83,17 +83,14 @@ class PropUtils:
 			else:
 				pivot = (0.5, 0.5)
 		elif self.use_pixel_bounds:
-			x, y, w, h = prop_data['bbox']
+			x, y, w, h = prop_data['bounds_uv']
 			pivot = (
 				x + pivot[0] * w,
 				y + pivot[1] * h,
 			)
 			pass
 
-		x = frame_data['x']
-		y = frame_data['y']
-		w = frame_data['w']
-		h = frame_data['h']
+		x, y, w, h = frame_data['rect_uv']
 		dx = w * pivot[0]
 		dy = h * pivot[1]
 		flip_x = 1 if prop.flip_x else -1

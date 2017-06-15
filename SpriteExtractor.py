@@ -155,10 +155,9 @@ class SpriteExtractor:
 				w = frame.rect1.right - frame.rect1.left
 				h = frame.rect1.bottom - frame.rect1.top
 				palette_data[palette_index].append(dict(
-					px=x, py=y,
-					pw=w, ph=h,
-					x=x / 48, y=y / 48,
-					w=w / 48, h=h / 48))
+					rect=(x, y, w, h),
+					rect_uv=(x / 48, y / 48, w / 48, h / 48)
+				))
 
 				self.print('field0/4/28 [%i/%i/%i]' % (frame.field0, frame.field4, frame.field28))
 				self.print('chunk [offset: %i count:%i]' % (frame.chunks_offset, frame.chunk_count))
@@ -372,10 +371,10 @@ class SpriteExtractor:
 
 			prop_data = sprite_data[prop_set][group_index]['sprites'][prop_index]
 			frame_data = prop_data['palettes'][0][0]
-			w = frame_data['pw']
-			h = frame_data['ph']
+			print(frame_data)
+			x, y, w, h = frame_data['rect']
 
-			print(sprite_file, prop_set, group_index, prop_index)
+			# print(sprite_file, prop_set, group_index, prop_index)
 
 			if file_name in custom_bbox:
 				bbox = custom_bbox[file_name]
@@ -413,7 +412,7 @@ class SpriteExtractor:
 			b_width = right - left
 			b_height = bottom - top
 			prop_data['bounds'] = (left, top, b_width, b_height)
-			prop_data['bbox'] = (left / w, top / h, b_width / w, b_height / h)
+			prop_data['bounds_uv'] = (left / w, top / h, b_width / w, b_height / h)
 
 			pass
 		pass
