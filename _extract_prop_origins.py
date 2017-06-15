@@ -8,8 +8,6 @@ import SpriteExtractor
 import dustmaker
 from PropUtils import PropUtils, Pivot, rad_to_int
 
-import sprite_bounds
-
 
 def read_prop_origins(prop_utils, map_file_location, map_file, grid_size=8, grid_factor=0.75):
 	data = prop_utils.prop_data
@@ -209,7 +207,7 @@ map_file = 'PropOrigins'
 grid_size = 8
 grid_factor = 0.75
 
-prop_utils = PropUtils('sprite-data', True)
+prop_utils = PropUtils('sprite-data', True, True)
 
 ## Read and save custom attachment points from the map
 # map_data = read_prop_origins(prop_utils, map_file_location, map_file, grid_size, grid_factor)

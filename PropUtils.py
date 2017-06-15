@@ -49,7 +49,7 @@ class Pivot:
 
 
 class PropUtils:
-	def __init__(self, data_file='sprite-data', use_scale=False):
+	def __init__(self, data_file='sprite-data', use_scale=False, use_pixel_bounds=True):
 		with open(data_file, 'rb') as f:
 			self.prop_data = pickle.load(f)
 
@@ -65,7 +65,7 @@ class PropUtils:
 
 		self.data_file = data_file
 		self.use_scale = use_scale
-		self.grid_factor = 0.75
+		self.use_pixel_bounds = use_pixel_bounds
 		pass
 
 	def get_prop_data(self, prop):
@@ -82,6 +82,13 @@ class PropUtils:
 				pivot = prop_data['origin']
 			else:
 				pivot = (0.5, 0.5)
+		elif self.use_pixel_bounds:
+			x, y, w, h = prop_data['bbox']
+			pivot = (
+				x + pivot[0] * w,
+				y + pivot[1] * h,
+			)
+			pass
 
 		x = frame_data['x']
 		y = frame_data['y']

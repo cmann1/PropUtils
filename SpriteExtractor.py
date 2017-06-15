@@ -336,6 +336,8 @@ class SpriteExtractor:
 		pass
 
 	def calculate_sprite_bounds(self, sprite_data):
+		# Save out the images of applying an alpha threshold
+		# Purely for testing purposes
 		save_alpha_images = False
 		alpha_dir = 'sprites_alpha'
 
@@ -344,19 +346,20 @@ class SpriteExtractor:
 				os.makedirs(alpha_dir)
 				pass
 
-		threshold = 192
+		threshold = 150
 		sprites = os.listdir(self.composite_dir)
 
+		# Mostly transparent sprites won't work well, so provide custom bounds for them
 		custom_bbox = {
-			'backdrops_1_22_4_moon': (3, 3, 0, 0),
-			'backdrops_1_22_5_black_water': (3, 3, 0, 0),
-			'backdrops_2_22_4_sun': (3, 3, 0, 0),
-			'backdrops_3_22_3_ellipse': (3, 3, 0, 0),
-			'backdrops_3_22_4_light_beam': (3, 3, 0, 0),
-			'decoration_2_3_1_drape': (3, 3, 0, 0),
-			'foliage_2_5_16_stain_small': (3, 3, 0, 0),
-			'foliage_2_5_17_stain_medium': (3, 3, 0, 0),
-			'foliage_2_5_18_stain_large': (3, 3, 0, 0),
+			'backdrops_1_22_4_moon': (3, 3, -1, -1),
+			'backdrops_1_22_5_black_water': (3, 3, -1, -1),
+			'backdrops_2_22_4_sun': (3, 3, -1, -1),
+			'backdrops_3_22_3_ellipse': (3, 3, -1, -1),
+			'backdrops_3_22_4_light_beam': (3, 3, -1, -1),
+			'decoration_2_3_1_drape': (3, 3, -1, -1),
+			'foliage_2_5_16_stain_small': (3, 3, -1, -1),
+			'foliage_2_5_17_stain_medium': (3, 3, -1, -1),
+			'foliage_2_5_18_stain_large': (3, 3, -1, -1),
 		}
 
 		for sprite_file in sprites:
@@ -366,6 +369,11 @@ class SpriteExtractor:
 			prop_set = int(sprite_file_data[1])
 			group_index = int(sprite_file_data[2])
 			prop_index = int(sprite_file_data[3])
+
+			prop_data = sprite_data[prop_set][group_index]['sprites'][prop_index]
+			frame_data = prop_data['palettes'][0][0]
+			w = frame_data['pw']
+			h = frame_data['ph']
 
 			print(sprite_file, prop_set, group_index, prop_index)
 
@@ -390,26 +398,22 @@ class SpriteExtractor:
 					sprite_image.save(os.path.join(alpha_dir, sprite_file))
 
 			if bbox is None:
-				bbox = (3, 3, 0, 0)
+				bbox = (3, 3, -1, -1)
 
 			left, top, right, bottom = bbox
 			if left < 3:
 				left = 3
 			if top < 3:
 				top = 3
+			if right < left:
+				right = w
+			if bottom < top:
+				bottom = h
 
-			# print('', sprite_image.getbbox())
-			prop_data = sprite_data[prop_set][group_index]['sprites'][prop_index]
-			frame_data = prop_data['palettes'][0][0]
-			w = frame_data['pw']
-			h = frame_data['ph']
-
-			prop_data['bbox'] = (
-				left / w,
-				right / w,
-				top / h,
-				bottom / h
-			)
+			b_width = right - left
+			b_height = bottom - top
+			prop_data['bounds'] = (left, top, b_width, b_height)
+			prop_data['bbox'] = (left / w, top / h, b_width / w, b_height / h)
 
 			pass
 		pass
