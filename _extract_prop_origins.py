@@ -4,8 +4,11 @@ import math
 import pickle
 import random
 
+import SpriteExtractor
 import dustmaker
 from PropUtils import PropUtils, Pivot, rad_to_int
+
+import sprite_bounds
 
 
 def read_prop_origins(prop_utils, map_file_location, map_file, grid_size=8, grid_factor=0.75):
@@ -30,9 +33,6 @@ def read_prop_origins(prop_utils, map_file_location, map_file, grid_size=8, grid
 		prop_data['origin'] = (abs(top_left[0] - grid_x) / frame_data['w'], abs(top_left[1] - grid_y) / frame_data['h'])
 
 		pass
-
-	with open(prop_utils.data_file, 'wb') as f:
-		pickle.dump(data, f)
 
 	return map_file_location, map_file, map, grid_size, grid_factor
 
@@ -212,8 +212,10 @@ grid_factor = 0.75
 prop_utils = PropUtils('sprite-data', True)
 
 ## Read and save custom attachment points from the map
-##
 # map_data = read_prop_origins(prop_utils, map_file_location, map_file, grid_size, grid_factor)
+
+# with open(prop_utils.data_file, 'wb') as f:
+# 	pickle.dump(prop_utils.prop_data, f)
 # with open('sprite-data.json', 'w') as f:
 # 	json.dump(prop_utils.prop_data, f, indent='\t')
 
@@ -221,5 +223,5 @@ prop_utils = PropUtils('sprite-data', True)
 ##
 with open(map_file_location + map_file, 'rb') as f:
 	map = dustmaker.read_map(f.read())
-map_data = (map_file_location, map_file, map, 8, 0.75)
+map_data = (map_file_location, map_file, map, grid_size, grid_factor)
 place_test_props(prop_utils, map_data, True, True, True, False)

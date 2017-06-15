@@ -2,7 +2,6 @@ import zlib
 import os
 import os.path
 import pickle
-import json
 
 from PIL import Image
 
@@ -334,6 +333,85 @@ class SpriteExtractor:
 
 			pass
 
+		pass
+
+	def calculate_sprite_bounds(self, sprite_data):
+		save_alpha_images = False
+		alpha_dir = 'sprites_alpha'
+
+		if save_alpha_images:
+			if not os.path.exists(alpha_dir):
+				os.makedirs(alpha_dir)
+				pass
+
+		threshold = 192
+		sprites = os.listdir(self.composite_dir)
+
+		custom_bbox = {
+			'backdrops_1_22_4_moon': (3, 3, 0, 0),
+			'backdrops_1_22_5_black_water': (3, 3, 0, 0),
+			'backdrops_2_22_4_sun': (3, 3, 0, 0),
+			'backdrops_3_22_3_ellipse': (3, 3, 0, 0),
+			'backdrops_3_22_4_light_beam': (3, 3, 0, 0),
+			'decoration_2_3_1_drape': (3, 3, 0, 0),
+			'foliage_2_5_16_stain_small': (3, 3, 0, 0),
+			'foliage_2_5_17_stain_medium': (3, 3, 0, 0),
+			'foliage_2_5_18_stain_large': (3, 3, 0, 0),
+		}
+
+		for sprite_file in sprites:
+			file_name = sprite_file[:-4]
+			sprite_file_data = file_name.split('_', 4)
+			group_name = sprite_file_data[0]
+			prop_set = int(sprite_file_data[1])
+			group_index = int(sprite_file_data[2])
+			prop_index = int(sprite_file_data[3])
+
+			print(sprite_file, prop_set, group_index, prop_index)
+
+			if file_name in custom_bbox:
+				bbox = custom_bbox[file_name]
+			else:
+				sprite_image = Image.open(os.path.join(self.composite_dir, sprite_file))
+				data = sprite_image.getdata()
+				new_data = []
+				a = 0
+				for index in range(len(data)):
+					r, g, b, a = data[index]
+					a += 1
+					if a < threshold:
+						new_data.append((0, 0, 0, 0))
+					else:
+						new_data.append((r, g, b, a))
+				sprite_image.putdata(new_data)
+				bbox = sprite_image.getbbox()
+
+				if save_alpha_images:
+					sprite_image.save(os.path.join(alpha_dir, sprite_file))
+
+			if bbox is None:
+				bbox = (3, 3, 0, 0)
+
+			left, top, right, bottom = bbox
+			if left < 3:
+				left = 3
+			if top < 3:
+				top = 3
+
+			# print('', sprite_image.getbbox())
+			prop_data = sprite_data[prop_set][group_index]['sprites'][prop_index]
+			frame_data = prop_data['palettes'][0][0]
+			w = frame_data['pw']
+			h = frame_data['ph']
+
+			prop_data['bbox'] = (
+				left / w,
+				right / w,
+				top / h,
+				bottom / h
+			)
+
+			pass
 		pass
 
 	def make_prop_thumbnails(self, data_file, size=(32, 32), match_size=True):
