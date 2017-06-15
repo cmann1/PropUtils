@@ -71,7 +71,7 @@ def place_test_props(prop_utils, map_data, test_get=True, test_set=False, test_g
 				arrows.append((layer, x, y, prop, prop_data))
 				continue
 
-			for pivot in [Pivot.TOP_LEFT, Pivot.TOP, Pivot.TOP_RIGHT, Pivot.RIGHT, Pivot.BOTTOM_RIGHT, Pivot.BOTTOM, Pivot.BOTTOM_LEFT, Pivot.CENTRE]:
+			for pivot in [Pivot.TOP_LEFT, Pivot.TOP, Pivot.TOP_RIGHT, Pivot.RIGHT, Pivot.BOTTOM_RIGHT, Pivot.BOTTOM, Pivot.BOTTOM_LEFT, Pivot.LEFT, Pivot.CENTRE]:
 				p = prop_utils.get_prop_location(x, y, prop, pivot, prop_data)
 
 				if pivot == Pivot.TOP_LEFT:
@@ -82,15 +82,20 @@ def place_test_props(prop_utils, map_data, test_get=True, test_set=False, test_g
 					marker_data = marker2_data
 					mo = m2o
 					mf = m2f
-				marker_prop = dustmaker.Prop(19, 0, True, True, 1, marker_data['set_index'], marker_data['group_index'], marker_data['sprite_index'], 0)
+				# marker_prop = dustmaker.Prop(19, 0, True, True, 1, marker_data['set_index'], marker_data['group_index'], marker_data['sprite_index'], 0)
 				# props.append((20, grid_x - mo[0] - mf[0] / 2, grid_y - mo[1] - mf[1] / 2, marker))
-				props.append((20, p[0] - mo[0] - mf[0] / 2, p[1] - mo[1] - mf[1] / 2, marker_prop))
+				# props.append((20, p[0] - mo[0] - mf[0] / 2, p[1] - mo[1] - mf[1] / 2, marker_prop))
+				marker_prop = PropUtils.from_data(marker_data)
+				marker_prop.scale = 0.2
+				marker_x, marker_y = prop_utils.set_prop_location(p[0], p[1], marker_prop, Pivot.CENTRE, marker_data)
+				props.append((20, marker_x, marker_y, marker_prop))
 
 			if test_grid:
 				centre = prop_utils.get_prop_location(x, y, prop, Pivot.CENTRE, prop_data)
 				grid_x = math.floor((centre[0] + half_grid) / grid_size) * grid_size
 				grid_y = math.floor((centre[1] + half_grid) / grid_size) * grid_size
 				marker_prop = dustmaker.Prop(19, 0, True, True, 1, marker3_data['set_index'], marker3_data['group_index'], marker3_data['sprite_index'], 0)
+				marker_prop.scale = 0.5
 				p = prop_utils.set_prop_location(grid_x, grid_y, marker_prop, m3p, marker3_data)
 				props.append((20, p[0], p[1], marker_prop))
 

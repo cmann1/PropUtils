@@ -2,6 +2,7 @@ import zlib
 import os
 import os.path
 import pickle
+import json
 
 from PIL import Image
 
@@ -215,21 +216,6 @@ class SpriteExtractor:
 				if self.write_textures:
 					image.save(os.path.join(self.extract_dir, texture.path))
 
-				# pixels = []
-				# i = 0
-				# for py in range(102):
-				# 	row = []
-				# 	pixels.append(row)
-				# 	for px in range(102):
-				# 		row.append(pixel_data[i + 2])
-				# 		row.append(pixel_data[i + 1])
-				# 		row.append(pixel_data[i + 0])
-				# 		row.append(pixel_data[i + 3])
-				# 		i += 4
-				# 		pass
-				# 	pass
-				#
-				# png.from_array(pixels, 'RGBA').save(os.path.join(self.extract_dir, texture.path))
 				pass
 
 			else:
