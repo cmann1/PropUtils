@@ -371,7 +371,6 @@ class SpriteExtractor:
 
 			prop_data = sprite_data[prop_set][group_index]['sprites'][prop_index]
 			frame_data = prop_data['palettes'][0][0]
-			print(frame_data)
 			x, y, w, h = frame_data['rect']
 
 			# print(sprite_file, prop_set, group_index, prop_index)
