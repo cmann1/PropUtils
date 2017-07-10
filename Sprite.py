@@ -7,6 +7,5 @@ class Sprite:
 		self.prop_set = prop_set
 		self.frame_count = 0
 		self.palette_count = 0
-		self.frame_count = 0
 		self.frames = []
 		self.chunks = []

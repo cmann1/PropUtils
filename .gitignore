@@ -142,3 +142,7 @@ tile_thumbnails/
 prop_thumbnails/
 extracted_textures/
 sprites_alpha/
+sprites_all/
+extracted_textures_all
+sprites-all-data.json
+sprite-all-data

@@ -27,6 +27,7 @@ class SpriteExtractor:
 		self.debug_print = True
 		self.read_textures = True
 		self.write_textures = True
+		self.split_sprite_name = True
 
 		self.prop_groups = {}
 		self.group_names = [
@@ -97,12 +98,21 @@ class SpriteExtractor:
 
 			sprite = Sprite(prop_set)
 
-			group_data = self.read_string().split('_')
-			sprite.group_name = group_data[0]
-			sprite.index = int(group_data[1])
-			sprite.group_index = self.prop_groups[sprite.group_name]
-			sprite.prefix = self.read_string()
-			self.print('[%i] %s %s_%s' % (sprite.group_index, sprite.prefix, sprite.group_name, sprite.index))
+			if self.split_sprite_name:
+				group_data = self.read_string().split('_')
+				sprite.group_name = group_data[0]
+				if len(group_data) > 1:
+					sprite.index = int(group_data[1])
+			else:
+				sprite.group_name = self.read_string()
+
+			if sprite.group_name in self.prop_groups:
+				sprite.group_index = self.prop_groups[sprite.group_name]
+			else:
+				sprite.group_index = sprite.group_name
+
+			sprite.prefix = self.read_string()[:-1].replace('/', '_')
+			self.print('[%s] %s %s_%s' % (sprite.group_index, sprite.prefix, sprite.group_name, sprite.index))
 
 			if sprite.group_index not in sprite_set_data:
 				sprite_group_data = sprite_set_data[sprite.group_index] = {'name': sprite.group_name, 'sprites': {}}
@@ -245,7 +255,11 @@ class SpriteExtractor:
 		sprites = []
 		textures = []
 
-		self.expect(b'DF_SPR')
+		try:
+			self.expect(b'DF_SPR')
+		except ReadError as e:
+			print('Ignoring malformed sprite file:' + location + name)
+			return None, None
 
 		version = reader.read(16)
 		if version != 0x2c:
@@ -258,7 +272,7 @@ class SpriteExtractor:
 		pixel_data_offset = reader.read(32, True)
 		pixel_data_length = reader.read(32, True)
 
-		self.print('sprites[%i] textures[%i]\nunk3/4/5[%i/%i/%i]\npixel_data[offset:%i, length: %i]\n' % (group_count, texture_count, unk3, unk4, unk5, pixel_data_offset, pixel_data_length))
+		self.print('%s sprites[%i] textures[%i]\nunk3/4/5[%i/%i/%i]\npixel_data[offset:%i, length: %i]\n' % (location + name, group_count, texture_count, unk3, unk4, unk5, pixel_data_offset, pixel_data_length))
 
 		self.extract_sprites(reader, sprite_set_data, sprites, group_count, prop_set)
 
@@ -267,7 +281,7 @@ class SpriteExtractor:
 		return sprites, textures
 		pass
 
-	def composite_sprites(self, sprites, textures):
+	def composite_sprites(self, sprites, textures, file_name_format=None):
 		if not os.path.exists(self.composite_dir):
 			os.makedirs(self.composite_dir)
 			pass
@@ -277,9 +291,20 @@ class SpriteExtractor:
 			self.print_group()
 
 			for frame in sprite.frames:
-				# filename = '%s%s_%i_%i_%04i' % (sprite.prefix.replace('/', '_'), sprite.group_name, sprite.index, frame.palette + 1, frame.index + 1)
-				filename = '%s_%i_%i_%i_' % (sprite.group_name, sprite.prop_set, sprite.group_index, sprite.index)
-				path = os.path.join(self.composite_dir, filename + '.png')
+				if file_name_format is None:
+					# filename = '%s%s_%i_%i_%04i' % (sprite.prefix.replace('/', '_'), sprite.group_name, sprite.index, frame.palette + 1, frame.index + 1)
+					filename = '%s_%i_%s_%i_' % (sprite.group_name, sprite.prop_set, sprite.group_index, sprite.index)
+					path = os.path.join(self.composite_dir, filename + '.png')
+				else:
+					format_string = file_name_format[0]
+					format_params_list = file_name_format[1]
+					format_params = []
+					for param_name in format_params_list:
+						if param_name == '__frame_index':
+							format_params.append(frame.index)
+						else:
+							format_params.append(sprite.__dict__[param_name])
+					path = os.path.join(self.composite_dir, format_string.format(*format_params) + '.png')
 
 				if os.path.isfile(path):
 					continue
