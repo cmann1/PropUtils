@@ -6,11 +6,11 @@ from PIL import Image, ImageFont, ImageDraw
 # Some settings
 
 sprite_dir = 'sprites'
-out_dir = 'files/name_sheets'
+out_dir = 'files/prop_reference'
 thumb_size = 72
 font_size = 12
 quality = 90
-padding = 20
+padding = 30
 section_size = thumb_size + padding * 2
 section_mid = section_size / 2
 
@@ -22,7 +22,7 @@ for sprite_file in sprites:
 	sprite_array = sprite_file[:-4].split('_', 4)
 	group_name = sprite_array[0]
 	prop_set = int(sprite_array[1])
-	group_index = int(sprite_array[2])
+	prop_group = int(sprite_array[2])
 	prop_index = int(sprite_array[3])
 	prop_name = sprite_array[4]
 
@@ -32,13 +32,13 @@ for sprite_file in sprites:
 		group = sprite_groups[group_name]
 
 	# group.append(prop_name)
-	group.append((prop_name, sprite_file))
+	group.append((prop_set, prop_group, prop_index, prop_name, sprite_file))
 	# print(group_name, prop_set, group_index, prop_index, prop_name)
 
 # Render
 
 for group_name, sprites in sprite_groups.items():
-	sorted_sprites = sorted(sprites, key=lambda item: (int(item[0].partition(' ')[0]) if item[0][0].isdigit() else float('inf'), item))
+	sorted_sprites = sorted(sprites, key=lambda item: (int(item[3].partition(' ')[0]) if item[3][0].isdigit() else float('inf'), item))
 	count = len(sorted_sprites)
 	num_cols = math.ceil(math.sqrt(count))
 	num_rows = math.ceil(count / num_cols)
@@ -49,7 +49,7 @@ for group_name, sprites in sprite_groups.items():
 	font = ImageFont.truetype('files/DejaVuSans.ttf', font_size)
 	draw = ImageDraw.Draw(sheet_image)
 
-	for name, file in sorted_sprites:
+	for prop_set, prop_group, prop_index, name, file in sorted_sprites:
 		w, h = draw.textsize(name, font=font)
 		if w > col_size:
 			col_size = w
@@ -64,7 +64,7 @@ for group_name, sprites in sprite_groups.items():
 	pad_y = padding
 	col = 0
 	row = 0
-	for name, file in sorted_sprites:
+	for prop_set, prop_group, prop_index, name, file in sorted_sprites:
 		x = col * col_size + pad_x
 		y = row * section_size + pad_y
 		thumb = Image.open(sprite_dir + '/' + file)
@@ -81,6 +81,10 @@ for group_name, sprites in sprite_groups.items():
 		draw = ImageDraw.Draw(sheet_image)
 		w, h = draw.textsize(name, font=font)
 		draw.text((x + (thumb_size - w) / 2, y + thumb_size - h + padding / 2), name, (255, 255, 255), font=font)
+
+		indices_text = '{} {} {}'.format(prop_set, prop_group, prop_index)
+		w, h = draw.textsize(indices_text, font=font)
+		draw.text((x + (thumb_size - w) / 2, y + thumb_size + padding / 2), indices_text, (255, 255, 255), font=font)
 
 		composite_draw.rectangle(((0, 0), size), (0, 0, 0, 0))
 
