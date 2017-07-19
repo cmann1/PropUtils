@@ -9,8 +9,9 @@ sprite_extractor = SpriteExtractor()
 
 sprite_extractor.read_textures = True
 sprite_extractor.write_textures = True
-sprite_extractor.read_textures = False
-sprite_extractor.write_textures = False
+# sprite_extractor.read_textures = False
+# sprite_extractor.write_textures = False
+
 sprite_extractor.split_sprite_name = False
 sprite_extractor.extract_dir = 'extracted_textures_all'
 sprite_extractor.composite_dir = 'sprites_all'
@@ -29,8 +30,8 @@ for sprite_file in listdir(sprite_path):
 
 		if sprites is not None:
 			sprites_list.extend(sprites)
-		# 	sprite_extractor.debug_print = False
-		# 	sprite_extractor.composite_sprites(sprites, textures, ('{0}-{1}-{2:04d}', ('prefix', 'group_name', '__frame_index')))
+			sprite_extractor.debug_print = False
+			sprite_extractor.composite_sprites(sprites, textures, ('{0}-{1}-{2}-{3:04d}', ('prefix', 'group_name', '__palette_index', '__frame_index')))
 
 	pass
 
@@ -54,5 +55,5 @@ for sprite in sprites_list:
 
 with open('sprites-all-data.json', 'w') as f:
 	json.dump(sprite_data, f, indent='\t')
-with open('sprite-all-data', 'wb') as f:
+with open('sprites-all-data', 'wb') as f:
 	pickle.dump(sprite_data, f)

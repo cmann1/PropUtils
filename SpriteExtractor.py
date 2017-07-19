@@ -301,7 +301,9 @@ class SpriteExtractor:
 					format_params = []
 					for param_name in format_params_list:
 						if param_name == '__frame_index':
-							format_params.append(frame.index)
+							format_params.append(frame.index + 1)
+						elif param_name == '__palette_index':
+							format_params.append(frame.palette + 1)
 						else:
 							format_params.append(sprite.__dict__[param_name])
 					path = os.path.join(self.composite_dir, format_string.format(*format_params) + '.png')
