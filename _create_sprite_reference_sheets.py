@@ -47,7 +47,6 @@ for sprite_set, set_data in sprite_data.items():
 	if len(sorted_sprites) == 0:
 		continue
 
-	sorted_sprites = sorted_sprites[0:50]
 	count = len(sorted_sprites)
 	total_count += count
 	num_cols = math.ceil(math.sqrt(count))
