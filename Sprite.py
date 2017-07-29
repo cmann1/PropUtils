@@ -1,5 +1,6 @@
 class Sprite:
-	def __init__(self, prop_set=-1):
+	def __init__(self, sprite_set_name, prop_set=-1):
+		self.sprite_set_name = sprite_set_name
 		self.prefix = ''
 		self.index = -1
 		self.group_name = ''

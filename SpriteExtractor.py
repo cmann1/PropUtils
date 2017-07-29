@@ -91,12 +91,12 @@ class SpriteExtractor:
 
 		return rect
 
-	def extract_sprites(self, reader, sprite_set_data, groups, group_count, prop_set=-1):
+	def extract_sprites(self, reader, sprite_set_data, sprite_set_name, groups, group_count, prop_set=-1):
 		for sprite_index in range(group_count):
 			self.print('Reading Sprite [%i]\n-------------------------------------' % sprite_index)
 			self.print_group()
 
-			sprite = Sprite(prop_set)
+			sprite = Sprite(sprite_set_name, prop_set)
 
 			if self.split_sprite_name:
 				group_data = self.read_string().split('_')
@@ -274,7 +274,7 @@ class SpriteExtractor:
 
 		self.print('%s sprites[%i] textures[%i]\nunk3/4/5[%i/%i/%i]\npixel_data[offset:%i, length: %i]\n' % (location + name, group_count, texture_count, unk3, unk4, unk5, pixel_data_offset, pixel_data_length))
 
-		self.extract_sprites(reader, sprite_set_data, sprites, group_count, prop_set)
+		self.extract_sprites(reader, sprite_set_data, name, sprites, group_count, prop_set)
 
 		self.extract_textures(reader, sprite_set_data, name, pixel_data_offset, textures, texture_count)
 
@@ -310,6 +310,9 @@ class SpriteExtractor:
 
 				if os.path.isfile(path):
 					continue
+
+				if not os.path.exists(os.path.dirname(path)):
+					os.makedirs(os.path.dirname(path))
 
 				sprite_image = Image.new('RGBA', (frame.rect1.width() - 1, frame.rect1.height() - 1), 0x00000000)
 				self.print(frame.rect1.left, frame.rect1.top)

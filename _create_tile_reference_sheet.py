@@ -3,6 +3,7 @@ import math
 import pickle
 
 from PIL import Image, ImageFont, ImageDraw
+from DrawWithAlpha import draw_with_alpha
 
 out_dir = 'files/tiles_reference'
 thumb_dir = 'tile_thumbnails'
@@ -22,26 +23,6 @@ row_title_height = 20
 with open('tile-data', 'rb') as f:
 	tile_data = pickle.load(f)
 
-
-def draw_with_alpha(dst, img, x, y, src_mask=None):
-	src2 = None
-
-	if src_mask is not None:
-		src2 = Image.new(img.mode, img.size, 0x00000000)
-		src2.paste(img, (0, 0), src_mask)
-		src = src2
-
-	x, y = int(x), int(y)
-	base = dst.crop((int(x), int(y), x + img.width, y + img.height))
-	base = Image.alpha_composite(base, img)
-	dst.paste(base, (x, y))
-
-	if src2 is not None:
-		src2.close()
-
-	base.close()
-
-	pass
 
 for set_index, tiles in tile_data['sets'].items():
 	set_name = set_names[set_index]
