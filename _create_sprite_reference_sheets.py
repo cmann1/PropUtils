@@ -2,6 +2,7 @@ import os
 import math
 import pickle
 
+from natsort import natsorted
 from PIL import Image, ImageFont, ImageDraw
 
 from DrawWithAlpha import draw_with_alpha
@@ -41,7 +42,7 @@ for sprite_set, set_data in sprite_data.items():
 	sorted_sprites = []
 	for sprite_name, sprite_data in set_data.items():
 		sorted_sprites.append((sprite_name, sprite_data))
-	sorted_sprites = sorted(sorted_sprites, key=lambda item: (int(item[0].partition(' ')[0]) if item[0][0].isdigit() else float('inf'), item))
+	sorted_sprites = natsorted(sorted_sprites, key=lambda y: y[0])
 
 	if len(sorted_sprites) == 0:
 		continue
@@ -71,6 +72,7 @@ for sprite_set, set_data in sprite_data.items():
 	pad_y = padding
 	col = 0
 	row = 0
+
 	for sprite_name, sprite_data in sorted_sprites:
 		x = col * col_size + pad_x
 		y = row * section_size + pad_y
