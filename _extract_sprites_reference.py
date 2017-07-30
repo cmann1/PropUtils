@@ -2,6 +2,8 @@
 # Extracts sprites in a convenient format for generating sprite reference sheets
 #
 
+import sys
+
 import json
 import pickle
 from os import listdir
@@ -17,7 +19,7 @@ sprite_extractor.split_sprite_name = False
 sprite_extractor.extract_dir = 'extracted_textures_all'
 sprite_extractor.composite_dir = 'reference_sprites'
 
-sprite_path = 'C:/GOG Games/Dustforce DX/content/sprites/'
+sprite_path = sys.argv[1] if len(sys.argv) > 1 else 'C:/GOG Games/Dustforce DX/content/sprites/'
 
 sprite_data = {}
 
