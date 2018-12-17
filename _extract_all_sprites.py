@@ -15,10 +15,13 @@ sprite_extractor.write_textures = True
 sprite_extractor.split_sprite_name = False
 sprite_extractor.extract_dir = 'extracted_textures_all'
 sprite_extractor.composite_dir = 'sprites_all'
+# sprite_extractor.extract_dir = 'extracted_textures_all_outlines'
+# sprite_extractor.composite_dir = 'sprites_all_outlines'
 
 sprites_list = []
 sprite_data = {}
 sprite_path = 'C:/GOG Games/Dustforce DX/content/sprites/'
+# sprite_path = 'C:/My Documents/sprites/'
 for sprite_file in listdir(sprite_path):
 	if sprite_file[:5] == 'intro':
 		continue
