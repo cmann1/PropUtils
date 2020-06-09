@@ -200,16 +200,16 @@ grid_factor = 0.75
 prop_utils = PropUtils('sprite-data', True, True)
 
 ## Read and save custom attachment points from the map
-# map_data = read_prop_origins(prop_utils, map_file_location, map_file, grid_size, grid_factor)
+map_data = read_prop_origins(prop_utils, map_file_location, map_file, grid_size, grid_factor)
 
-# with open(prop_utils.data_file, 'wb') as f:
-# 	pickle.dump(prop_utils.prop_data, f)
-# with open('sprite-data.json', 'w') as f:
-# 	json.dump(prop_utils.prop_data, f, indent='\t')
+with open(prop_utils.data_file, 'wb') as f:
+	pickle.dump(prop_utils.prop_data, f)
+with open('sprite-data.json', 'w') as f:
+	json.dump(prop_utils.prop_data, f, indent='\t')
 
 ## Run some tests to make sure it works
 ##
-with open(map_file_location + map_file, 'rb') as f:
-	map = dustmaker.read_map(f.read())
-map_data = (map_file_location, map_file, map, grid_size, grid_factor)
-place_test_props(prop_utils, map_data, True, True, True, False)
+# with open(map_file_location + map_file, 'rb') as f:
+# 	map = dustmaker.read_map(f.read())
+# map_data = (map_file_location, map_file, map, grid_size, grid_factor)
+# place_test_props(prop_utils, map_data, True, True, True, False)
