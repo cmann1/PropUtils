@@ -18,19 +18,19 @@ def read_prop_origins(prop_utils, map_file_location, map_file, grid_size=8, grid
 	half_grid = grid_size * grid_factor
 
 	for id, value in map.props.items():
-		layer, x, y, prop = value
+		layer, prop_x, prop_y, prop = value
 
 		prop_data = prop_utils.get_prop_data(prop)
 		frame_data = prop_data['palettes'][0][0]
 		x, y, w, h = frame_data['rect_uv']
-		centre = prop_utils.get_prop_location(x, y, prop, Pivot.CENTRE, prop_data)
+		centre = prop_utils.get_prop_location(prop_x, prop_y, prop, Pivot.CENTRE, prop_data)
 
 		grid_x = math.floor((centre[0] + half_grid) / grid_size) * grid_size
 		grid_y = math.floor((centre[1] + half_grid) / grid_size) * grid_size
 
-		top_left = prop_utils.get_prop_location(x, y, prop, Pivot.TOP_LEFT, prop_data)
+		top_left = prop_utils.get_prop_location(prop_x, prop_y, prop, Pivot.TOP_LEFT, prop_data)
 		prop_data['origin'] = (abs(top_left[0] - grid_x) / w, abs(top_left[1] - grid_y) / h)
-
+		
 		pass
 
 	return map_file_location, map_file, map, grid_size, grid_factor
